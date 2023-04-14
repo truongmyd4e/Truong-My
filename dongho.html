@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(246, 244, 244);
+        }
+      @keyframes gayChay {
+            0% {
+                top: 0;
+                left: 0;
+            }
+            25%{
+                top: 0;
+                left: 80%;
+            }
+            50%{
+                top: 80%;
+                left: 80%;
+            }
+            75%{
+                top: 80%;
+                left: 0;
+            }
+            100% {
+                top: 0;
+                left: 0;
+            }
+        }
+        #img{
+            width: 100px;
+            height: 100px;
+            display: none;
+            position: fixed;
+            animation: gayChay 15s infinite;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(160, 39, 39);
+            margin-bottom: 40px;
+            font-size: 35px;
+        }
+        #img:hover{
+            width: 150px;
+            height: 150px;
+            border: 5px solid  rgb(33, 121, 176);
+            border-radius: 30%;
+        }
+        #time{
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 100px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(255, 255, 255);
+            background-color: rgb(44, 44, 41);
+            display: inline;
+            
+        }
+        .chicken{
+            margin-top: 150px;
+            text-align: center;
+        }
+        #tensu p{
+            background-color: rgb(33, 121, 176);
+            color: white;
+            display: inline;
+            font-size: 24px;
+            padding: 20px 30px;
+            border-radius: 50%;
+            margin-top: 100px;
+            display: none;
+            
+        }
+        #tensu{
+            text-align: center;
+           
+        }
+    </style>
+  </head>
+  <body>
+      <div class="chicken">
+          <h1>Count Down</h1>
+          <div id="time"></div>
+      </div>
+      <div id="tensu"><p id="tensu1">+ 10 điểm</p></div>
+      <!-- <div id="chuong_ga"></div> -->
+      <!-- <div id="test" ></div> -->
+      <img id="img" src="hen.png" alt=""  class="ga">
+    <script>
+      function countDown() {
+        // Khai báo mốc thời gian
+        let target = new Date("2023/04/13");
+
+        // Lấy thời gian hiện tại
+        let now = new Date();
+
+        
+        // Tính khoảng cách giữa 2 mốc thời gian nhiêu giây
+        let seconds = (target.getTime() - now.getTime()) / 1000;
+        
+        // Tính giờ
+        let h = parseInt(seconds / 3600);
+        // Tính phút
+        let m = parseInt((seconds % 3600) / 60);
+        // Tính giây
+        let sec = parseInt(seconds % 60);
+
+        //cộng 0 trước để thành 2 chữ số
+        if(h < 10){
+            h = "0" + h
+        }
+        if(m < 10){
+            m = "0" + m
+        }
+        if(sec < 10){
+            sec = "0" + sec
+        }
+
+        //set thời gian gà hiện và mất gà
+        let i = sec;
+        let img = document.getElementById("img")
+        if(i == 10 || i == 20 || i == 30 || i == 40 || i == 50 || i == 0){
+            img.style.display = "block"
+        }
+        if(i == 14 || i == 24 || i == 34 || i == 44 || i == 54 || i == 4){
+            img.style.display = "none"
+        }
+
+        //nếu time về 0 thì end
+        if(seconds <= 0){
+            alert("Het Gio")
+        }
+     
+        //in ra
+        let time = document.getElementById("time")
+        time.innerHTML = h + ":" + m + ":" + sec
+      }
+      countDown()
+      setInterval(countDown,1000)
+
+    //   --------
+
+      let img = document.getElementById("img")
+      let tensu1 = document.getElementById("tensu1")
+
+      //kick vào gà biến mất và hiện ô +10 điểm
+      img.onclick = function(){
+        img.style.display = "none"
+        tensu1.style.display = "inline-block"
+
+        // set ô +10 điểm biến mất sau 3s 
+        let timOut = setTimeout(function(countDown){
+        tensu1.style.display = "none"
+        
+        
+
+    },3000)
+
+    }
+    
+      
+
+
+    //code of thầy
+       //   ----------------
+      // document.getElementById('chuong_ga').appendChild(img);
+      // let test = document.getElementById('test');
+      // let _top = 1;
+      // let _left = 1;
+      // function gaChay() {
+      //     console.log("Con gà đang chạy!");
+      //     if ((_top + 50) == window.innerHeight) {
+      //         test.style.top = _top-- + "px";
+      //         test.style.left = _left-- + "px";
+      //     } else {
+      //         test.style.top = _top++ + "px";
+      //         test.style.left = _left++ + "px";
+      //     }
+
+      //     requestAnimationFrame(gaChay);
+      // }
+      // window.requestAnimationFrame(gaChay);
+    </script>
+  </body>
+</html>
