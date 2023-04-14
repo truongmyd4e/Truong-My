@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+   
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-10{
+    width: 20%;
+}
+.col-50{
+    width: 50%;
+}
+.col-30{
+    width: 30%;
+}
+.col-70{
+    width: 70%;
+}
+.col-80{
+    width: 80%;
+}
+.main{
+    border: 1px solid #000;
+    width: 90%;
+   padding: 20px;
+}
+.input{
+    padding: 5px 10px;
+    width: 70%;
+    margin-bottom: 10px;
+}
+.name{
+    font-size: 18px;
+    margin-top: 5px;
+}
+.name1{
+    margin-top: 55px;
+}
+textarea{
+    width: 100%;
+}
+p{
+    font-size: 18px;
+}
+.bot{
+    text-align: center;
+    margin-top: 25px;
+}
+.bot button{
+    margin: 0 5px;
+    padding: 5px 10px;
+}
